@@ -27,7 +27,7 @@ openai.api_key = OPENAI_API_KEY
 
 # Step 1. Ask user for the relative path to the script.txt file and the step to start from
 text_file_path = input("Enter the relative path to your script.txt file: ")
-start_step = int(input("Enter the step number to start from (1-10): "))
+start_step = 1
 
 if not os.path.isfile(text_file_path):
     logging.error(f"The file {text_file_path} does not exist.")
@@ -36,7 +36,6 @@ if not os.path.isfile(text_file_path):
 text_file_dir = os.path.dirname(os.path.abspath(text_file_path))
 
 # Step 2. Read text from file
-if start_step <= 2:
     try:
         with open(text_file_path, 'r') as file:
             text_to_speak = file.read()
@@ -46,7 +45,6 @@ if start_step <= 2:
         exit(1)
 
 # Step 3. Generate a folder name using OpenAI
-if start_step <= 3:
     try:
         response = openai.Completion.create(
             model="text-davinci-003",  # Ensure to use a supported model
@@ -66,7 +64,6 @@ if start_step <= 3:
 
 
 # Step 4: Send text to elevenlabs for voice mp3 generation
-if start_step <= 6:
     tts_url = f"https://api.elevenlabs.io/v1/text-to-speech/{VOICE_ID}/stream"
     headers = {
         "Accept": "application/json",
