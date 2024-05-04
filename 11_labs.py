@@ -49,7 +49,7 @@ if start_step <= 2:
 if start_step <= 3:
     try:
         response = openai.Completion.create(
-            model="gpt-3.5-turbo",
+            model="text-davinci-003",  # Ensure to use a supported model
             prompt=f"Generate a concise, descriptive name for a folder based on the following text: {text_to_speak}",
             max_tokens=10,
             temperature=0.7
