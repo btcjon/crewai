@@ -48,13 +48,13 @@ if start_step <= 2:
 # Step 3. Generate a folder name using OpenAI
 if start_step <= 3:
     try:
-        response = openai.Completion.create(
+        response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             prompt=f"Generate a concise, descriptive name for a folder based on the following text: {text_to_speak}",
             max_tokens=10,
             temperature=0.7
         )
-        folder_name = response.choices[0].text.strip()
+        folder_name = response['choices'][0]['message']['content'].strip()
         folder_path = os.path.join(text_file_dir, folder_name)
         if not os.path.exists(folder_path):
             os.makedirs(folder_path)
