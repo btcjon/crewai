@@ -130,14 +130,11 @@ prompts = [
 
 # Step 10: Read the total scenes from assets.txt to determine the number of images to generate
 assets_file_path = os.path.join(folder_path, 'assets.txt')
-try:
-    with open(assets_file_path, 'r') as file:
-        lines = file.readlines()
-        total_scenes_line = next(line for line in lines if "Total Scenes" in line)
-        num_images = int(total_scenes_line.split(': ')[1].strip())  # Extract the number of scenes
-except Exception as e:
-    logging.error(f"Failed to read or parse assets.txt: {str(e)}")
-    exit(1)
+with open(assets_file_path, 'r') as file:
+    lines = file.readlines()
+    total_scenes_line = next(line for line in lines if "Total Scenes" in line)
+    num_images = int(total_scenes_line.split(': ')[1].strip())  # Extract the number of scenes
+logging.info(f"Number of images to generate: {num_images}")
 
 # Now num_images is set dynamically based on the total scenes
 print(f"Number of images to generate: {num_images}")
