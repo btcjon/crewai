@@ -36,17 +36,12 @@ if not os.path.isfile(text_file_path):
 text_file_dir = os.path.dirname(os.path.abspath(text_file_path))
 
 # Step 2. Read text from file
-    try:
-        with open(text_file_path, 'r') as file:
-            text_to_speak = file.read()
-        logging.info("Text read successfully from script.txt")
-    except Exception as e:
-        logging.error(f"Failed to read text file: {str(e)}")
-        exit(1)
+    with open(text_file_path, 'r') as file:
+        text_to_speak = file.read()
+    logging.info("Text read successfully from script.txt")
 
 # Step 3. Generate a folder name using OpenAI
-    try:
-        response = openai.Completion.create(
+    response = openai.Completion.create(
             model="text-davinci-003",  # Ensure to use a supported model
             prompt=f"Generate a concise, descriptive name for a folder based on the following text: {text_to_speak}",
             max_tokens=10,
@@ -57,9 +52,6 @@ text_file_dir = os.path.dirname(os.path.abspath(text_file_path))
         if not os.path.exists(folder_path):
             os.makedirs(folder_path)
         logging.info(f"Folder created: {folder_path}")
-    except Exception as e:
-        logging.error(f"OpenAI API error or folder creation error: {str(e)}")
-        exit(1)
 
 
 
@@ -159,22 +151,22 @@ for i in range(num_images):
     # Improve the prompt using the API
     improve_payload = {"prompt": chosen_prompt}
     improve_response = requests.post(prompt_improve_url, json=improve_payload, headers=headers)
-    
+
     # Wait for 5 seconds to ensure the prompt has been improved
     time.sleep(5)
 
     if improve_response.status_code == 200:
         response_json = improve_response.json()
         improved_prompt = response_json.get('promptGeneration', {}).get('prompt', None)
-        
+
         # Debugging line to check the full response from the API
         print("API Improve Response:", json.dumps(response_json, indent=4))
-        
+
         # Check if the prompt was actually improved
         if improved_prompt is None or improved_prompt == chosen_prompt:
             print("No improvement on the prompt. Stopping the process.")
             continue  # Skip this iteration or use `break` to stop the entire loop
-        
+
         print(f"Improved prompt: {improved_prompt}")  # Debugging line to check the improved prompt
     else:
         print("Failed to improve prompt, using base prompt.")  # Debugging line for failure case
