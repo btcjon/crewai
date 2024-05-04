@@ -1,0 +1,9 @@
+1. ask user for txt file that is a script
+2. read its contents
+3. Create a folder/directory that is named based on the script contents. Keep the name short and concise. 
+4. save the script inside the folder you created. 
+5. use the script file and base_scripts/11_labs.py to generate mp3 file
+6. save the mp3 file in the folder created in earlier step.
+7. note the time length of the mp3 file and divide that number by 4.  This is the number of images you will need to generate in next step.
+8. Use this python script base_scripts/number_images.py and pass in the number you got from step 7.  You will also need to pass the relative path to the folder you created in step 3.  Allow the script to run and it will create the images and save them in the folder you created in step 3.
+
