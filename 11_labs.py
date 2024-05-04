@@ -1,5 +1,5 @@
 import os
-import openai
+import openai_secret_manager
 import requests
 import boto3
 from mutagen.mp3 import MP3
@@ -22,8 +22,8 @@ if not OPENAI_API_KEY or not XI_API_KEY:
     logging.error("API keys are not set in environment variables.")
     exit(1)
 
-# Initialize OpenAI client
-openai.api_key = OPENAI_API_KEY
+# Initialize OpenAI client with the new interface
+openai_secret_manager.set_secret("openai", OPENAI_API_KEY)
 
 # Step 1. Ask user for the relative path to the script.txt file and the step to start from
 text_file_path = input("Enter the relative path to your script.txt file: ")
@@ -48,7 +48,7 @@ if start_step <= 2:
 # Step 3. Generate a folder name using OpenAI
 if start_step <= 3:
     try:
-        response = openai.Completion.create(
+        response = openai_secret_manager.Completion.create(
             model="gpt-3.5-turbo",
             prompt=f"Generate a concise, descriptive name for a folder based on the following text: {text_to_speak}",
             max_tokens=10,
