@@ -1,0 +1,10 @@
+MP3 URL: https://cashdaily1.s3.amazonaws.com/10K30DaysBlueprint/10K30DaysBlueprint.mp3
+Total Length: 33 seconds
+Total Scenes: 7
+S3 Image URL: https://cashdaily1.s3.amazonaws.com/10K30DaysBlueprint/Default_In_a_sunlit_beachfront_villa_a_remarkably_accomplished_0.jpg
+S3 Image URL: https://cashdaily1.s3.amazonaws.com/10K30DaysBlueprint/Default_A_strikingly_accomplished_young_woman_in_the_glamorous_0.jpg
+S3 Image URL: https://cashdaily1.s3.amazonaws.com/10K30DaysBlueprint/Default_A_thriving_digital_marketer_embodying_success_and_yout_0.jpg
+S3 Image URL: https://cashdaily1.s3.amazonaws.com/10K30DaysBlueprint/Default_A_thriving_digital_marketer_her_every_move_exudes_conf_0.jpg
+S3 Image URL: https://cashdaily1.s3.amazonaws.com/10K30DaysBlueprint/Default_In_the_opulent_setting_of_a_chic_beachfront_villa_a_vi_0.jpg
+S3 Image URL: https://cashdaily1.s3.amazonaws.com/10K30DaysBlueprint/Default_A_young_digital_marketer_excels_in_her_field_surrounde_0.jpg
+S3 Image URL: https://cashdaily1.s3.amazonaws.com/10K30DaysBlueprint/Default_In_a_sumptuously_elegant_scene_we_see_a_prosperous_you_0.jpg
